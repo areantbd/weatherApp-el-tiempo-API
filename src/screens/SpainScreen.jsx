@@ -11,7 +11,9 @@ function SpainScreen() {
 
   console.log(data?.ciudades)
   return (
-    <div></div>
+    <div>
+      <h1>{data?.ciudades[0].name}</h1>
+    </div>
   )
 }
 
