@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import CityCard from '../components/CityCard'
 
 function SpainScreen() {
   const [data, setData] = useState(null)
@@ -9,11 +11,18 @@ function SpainScreen() {
       .then((data) => setData(data.data))
   }, [])
 
-  console.log(data?.ciudades)
+  // console.log(data?.ciudades)
   return (
-    <div>
-      <h1>{data?.ciudades[0].name}</h1>
-    </div>
+    <>
+      <Link to={"/provincias"}>Provincias</Link>
+      <div className='container d-flex flex-wrap gap-2 justify-content-center mx-auto my-5'>
+      {data?.ciudades.map((ciudad) => (
+        <div className="" key={ciudad?.id}>
+          <CityCard {...ciudad}/>
+        </div>
+        ))}
+      </div>
+    </>
   )
 }
 
