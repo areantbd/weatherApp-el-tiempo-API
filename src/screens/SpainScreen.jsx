@@ -11,7 +11,7 @@ function SpainScreen() {
       .then((data) => setData(data.data))
   }, [])
 
-  // console.log(data?.ciudades)
+  console.log(data?.ciudades)
   return (
     <>
       <Link to={"/provincias"}>Provincias</Link>

@@ -11,7 +11,7 @@ function ProvincScreen() {
       .catch((error) => console.error(error))
   }, [])
 
-  // console.log(provinces)
+  console.log(provinces)
 
   return (
     <div className='container d-flex flex-wrap  justify-content-evenly gap-3 mt-5'>

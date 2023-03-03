@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CityCard({ name, stateSky, temperatures }) {
+function CityCard({ name, stateSky, temperatures, codProv, idProvince, id }) {
   
   return (
     <div className='container weather-card'>
@@ -11,6 +11,8 @@ function CityCard({ name, stateSky, temperatures }) {
           <h5 className='text-center text-light'>T min: {temperatures.min}</h5>
           <h5 className='text-center text-light'>T max: {temperatures.max}</h5>
         </div>
+        <h5 className='text-center text-light'>{codProv || idProvince}</h5>
+        <h5 className='text-center text-light'>{id}</h5>
       </div>
     </div>
   )
