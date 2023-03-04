@@ -6,14 +6,14 @@ import SpainScreen from "./screens/SpainScreen";
 
 function App() {
   return (
-    <>
+    <div className=" ">
       <Routes>
         <Route path="/" element={<SpainScreen />}/>
         <Route path="/provincias" element={<ProvincScreen />}/>
         <Route path="/provincias/:codProv" element={<ProvincDetailScreen />}/>
         <Route path="/provincias/:codProv/municipios" element={<MunicScreen />}/>
       </Routes>
-    </>
+    </div>
   );
 }
 

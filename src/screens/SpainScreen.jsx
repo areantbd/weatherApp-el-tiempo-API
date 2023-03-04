@@ -1,4 +1,6 @@
 import axios from 'axios'
+import moment from 'moment/moment'
+import "moment/locale/es"
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import CityCard from '../components/CityCard'
@@ -14,10 +16,12 @@ function SpainScreen() {
   console.log(data?.ciudades)
   return (
     <>
+      <h1 className='text-center my-4'>EL tiempo en España {moment().format("LL")}</h1>
       <Link to={"/provincias"}>Provincias</Link>
-      <div className='container d-flex flex-wrap gap-2 justify-content-center mx-auto my-5'>
+      <h1 className='text-center mt-3'>Ciudades destacadas</h1>
+      <div className=' d-flex flex-wrap gap-2 justify-content-center my-5'>
       {data?.ciudades.map((ciudad) => (
-        <div className="" key={ciudad?.id}>
+        <div key={ciudad?.id}>
           <CityCard {...ciudad}/>
         </div>
         ))}
