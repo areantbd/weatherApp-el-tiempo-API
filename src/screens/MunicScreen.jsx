@@ -1,15 +1,15 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import MunicipalitiesLink from '../components/MunicipalitiesLink'
+import * as services from "../services/get-api-info-services"
 
 function MunicScreen() {
   const {codProv} = useParams()
   const [municipios, setMunicipios] = useState(null)
   let test = null
 
-  // console.log(codProv)
   useEffect(() => {
-    axios.get(`https://www.el-tiempo.net/api/json/v2/provincias/${codProv}/municipios`)
+    services.getMunicipalitiesNames(codProv)
       .then((data) => setMunicipios(data.data))
       .catch((error) => console.error(error))
   }, [codProv])
@@ -23,11 +23,11 @@ function MunicScreen() {
   // console.log(municipios)
 
   return (
-    <>
+    <div className='container d-flex flex-wrap  justify-content-evenly gap-3 mt-5'>
     {test?.map((municipio) => (
-      <h3>{municipio[1]?.NOMBRE} {municipio[1]?.CODIGOINE.slice(0, 5)}</h3>
+        <MunicipalitiesLink provId={codProv} munId={municipio[1]?.CODIGOINE.slice(0, 5)} name={municipio[1]?.NOMBRE} />
     ))}
-    </>
+    </div>
   )
 }
 

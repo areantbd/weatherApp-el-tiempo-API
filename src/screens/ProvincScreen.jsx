@@ -1,12 +1,12 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import ProvincesLink from '../components/ProvincesLink'
+import * as services from "../services/get-api-info-services"
 
 function ProvincScreen() {
   const [provinces, setProvinces] = useState(null)
 
   useEffect(()=> {
-    axios.get("https://www.el-tiempo.net/api/json/v2/provincias")
+    services.getProvincesNames()
       .then((data) => setProvinces(data.data.provincias))
       .catch((error) => console.error(error))
   }, [])

@@ -1,14 +1,14 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import CityCard from '../components/CityCard'
+import * as services from "../services/get-api-info-services"
 
 function ProvincDetailScreen() {
   let { codProv } = useParams()
   const [prov, setProv] = useState(null)
 
   useEffect(() => {
-    axios.get(`https://www.el-tiempo.net/api/json/v2/provincias/${codProv}`)
+    services.getProvince(codProv)
       .then((data) => setProv(data?.data))
       .catch((error) => console.error(error))
   }, [codProv])
