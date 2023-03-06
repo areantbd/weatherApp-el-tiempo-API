@@ -4,9 +4,12 @@
   height: 100%;
 }
 
+/* .weather-card {
+  height: 180px;
+  width: 200px;
+  opacity: 0.5;
+} */
 .weather-card {
-  height: 200px;
-  width: 250px;
   opacity: 0.5;
 }
 

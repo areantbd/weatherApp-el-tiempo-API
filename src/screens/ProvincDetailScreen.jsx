@@ -29,7 +29,7 @@ function ProvincDetailScreen() {
         <div className='fullscreen my-5'>
           <Link to={`/provincias/${codProv}/municipios`}>Todos los municipios</Link>
           <h1 className='text-center'>Municipios destacados de {prov?.provincia.NOMBRE_PROVINCIA}</h1>
-          <div className='container d-flex flex-wrap gap-2 justify-content-center mx-auto'>
+          <div className='container d-flex flex-wrap gap-2 justify-content-center mx-auto my-5'>
             {prov?.ciudades.map((ciudad) => (
               <div key={ciudad.id}>
                 <CityCard {...ciudad} codProv={codProv}/>
