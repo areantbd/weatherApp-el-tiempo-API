@@ -6,7 +6,7 @@ function ProvincesLink({ id, name }) {
   // console.log(id)
   return (
     <div>
-      <Link to={`/provincias/${id}`} className="bg-secondary px-4 py-3 text-light">{name}</Link>
+      <Link to={`/provincias/${id}`} className="btn btn-sm btn-secondary shadow px-3  py-1 text-light">{name}</Link>
     </div>
   )
 }
