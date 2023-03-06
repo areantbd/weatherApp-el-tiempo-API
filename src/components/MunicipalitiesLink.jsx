@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function MunicipalitiesLink({provId, munId, name}) {
   return (
     <div>
-      <Link to={`/provincias/${provId}/municipios/${munId}`} className="bg-secondary px-4 py-1 text-light">{name}</Link>
+      <Link to={`/provincias/${provId}/municipios/${munId}`} className="bg-secondary px-4 py-2 text-light">{name}</Link>
     </div>
   )
 }

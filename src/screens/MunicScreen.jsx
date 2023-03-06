@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import UseAnimations from 'react-useanimations'
+import loading2 from 'react-useanimations/lib/loading2'
 import MunicipalitiesLink from '../components/MunicipalitiesLink'
 import * as services from "../services/get-api-info-services"
 
@@ -22,13 +24,21 @@ function MunicScreen() {
 
   // console.log(municipios)
 
-  return (
-    <div className='container d-flex flex-wrap  justify-content-evenly gap-3 mt-5'>
-    {test?.map((municipio) => (
-        <MunicipalitiesLink provId={codProv} munId={municipio[1]?.CODIGOINE.slice(0, 5)} name={municipio[1]?.NOMBRE} />
-    ))}
-    </div>
-  )
+  if (!municipios) {
+    return (
+        <div className='d-flex justify-content-center align-items-center'>
+          <UseAnimations animation={loading2} size={150} fillColor={"gray"} />
+        </div>    
+    )
+  } else {
+    return (
+      <div className='fullscreen container d-flex flex-wrap justify-content-center gap-3 mt-5'>
+        {test?.map((municipio) => (
+          <MunicipalitiesLink provId={codProv} munId={municipio[1]?.CODIGOINE.slice(0, 5)} name={municipio[1]?.NOMBRE} key={municipio[1]?.NOMBRE} />
+        ))}
+      </div>
+    )
+  }
 }
 
 export default MunicScreen
