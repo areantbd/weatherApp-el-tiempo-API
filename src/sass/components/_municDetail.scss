@@ -1,0 +1,32 @@
+.detail-card {
+  background-color: $white;
+  opacity: 0.5;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  &:hover {
+    .data-text{
+      filter: drop-shadow( 5px 5px 5px $dark);
+    }
+  }
+}
+
+.cards{
+  display: flex;
+}
+
+.data-card{
+  border: 2px solid rgb(95, 95, 95);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 5px 5px 5px gray;
+
+}
+
+.data-text{
+  
+  color: $main;
+}

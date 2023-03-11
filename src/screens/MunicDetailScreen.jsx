@@ -35,15 +35,30 @@ function MunicDetailScreen() {
   } else {
     return (
       <div className='fullscreen pt-5 container'>
-        <h3 className='fw-bold'>{munic?.municipio.NOMBRE.toUpperCase()} {prov}</h3>
-        <h1 className='fw-bold'>{moment().format("dddd").toUpperCase()}, {moment().format("D")} {moment().format("MMM").toUpperCase()} </h1>
-        <h1>{munic?.temperatura_actual}º</h1>
-        <h3>{munic?.stateSky.description}</h3>
-        <h5>MAX: {munic?.temperaturas.max}ºC</h5>
-        <h5>MIN: {munic?.temperaturas.min}ºC</h5>
-        <h5>Humedad {munic?.humedad}%</h5>
-        <h5>Viento {munic?.viento} km/h</h5>
-        <h5>P. Lluvia {munic?.lluvia}%</h5>
+        <div className='detail-card py-3 mb-5'>
+          <h3 className='fw-bold data-text'>{munic?.municipio.NOMBRE.toUpperCase()} {prov}</h3>
+          <h1 className='fw-bold data-text'>{moment().format("dddd").toUpperCase()}, {moment().format("D")} {moment().format("MMM").toUpperCase()} </h1>
+          <h1 className='data-text'>{munic?.temperatura_actual}º</h1>
+          <h3 className='data-text'>{munic?.stateSky.description}</h3>
+          <div className='d-flex gap-3'>
+            <h5 className='data-text'>MAX: {munic?.temperaturas.max}ºC</h5>
+            <h5 className='data-text'>MIN: {munic?.temperaturas.min}ºC</h5>
+          </div>
+          <div className='cards gap-2 pb-3 mt-3'>            
+            <div className='data-card'>
+              <h5 className='text-center data-text'>Humedad</h5>
+              <h5 className='text-center data-text'>{munic?.humedad}%</h5>
+            </div>
+            <div className='data-card'>
+              <h5 className='text-center data-text'>Viento</h5>
+              <h5 className='text-center data-text'>{munic?.viento} km/h</h5>
+            </div>
+            <div className='data-card'>
+              <h5 className='text-center data-text'>P. Lluvia</h5>
+              <h5 className='text-center data-text'>{munic?.lluvia}%</h5>
+            </div>
+          </div>
+        </div>
 
         <h1>Mas info</h1>
         <h3>Población capital: {munic?.municipio.POBLACION_CAPITAL}</h3>

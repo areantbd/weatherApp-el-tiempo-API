@@ -27,7 +27,7 @@ function MunicipalitiesSelector() {
         </button>
         <ul className="dropdown-menu">
         {test?.map((municipio) => (
-          <li key={municipio[1]?.CODIGOINE.slice(0, 5)}><Link to={`/provincias/${codProv}/municipios/${municipio[1]?.CODIGOINE.slice(0, 5)}`} className="provinces-link text-decoration-none">{municipio[1]?.NOMBRE}</Link></li>
+          <li key={municipio[1]?.CODIGOINE.slice(0, 5)}><Link to={`/provincias/${codProv}/municipios/${municipio[1]?.CODIGOINE.slice(0, 5)}`} className="provinces-link text-decoration-none ms-3 me-n3">{municipio[1]?.NOMBRE}</Link></li>
         ))}
         </ul>
       </div>
