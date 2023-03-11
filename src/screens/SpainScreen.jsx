@@ -1,7 +1,6 @@
 import moment from 'moment/moment'
 import "moment/locale/es"
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import CityCard from '../components/CityCard'
 import UseAnimations from 'react-useanimations'
 import loading2 from 'react-useanimations/lib/loading2'

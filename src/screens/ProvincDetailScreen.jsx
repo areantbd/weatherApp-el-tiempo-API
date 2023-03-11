@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import CityCard from '../components/CityCard'
 import UseAnimations from 'react-useanimations'
 import loading2 from 'react-useanimations/lib/loading2'
