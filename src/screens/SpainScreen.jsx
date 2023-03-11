@@ -6,6 +6,7 @@ import CityCard from '../components/CityCard'
 import UseAnimations from 'react-useanimations'
 import loading2 from 'react-useanimations/lib/loading2'
 import * as services from "../services/get-api-info-services"
+import ProvincesSelector from '../components/ProvincesSelector'
 
 function SpainScreen() {
   const [data, setData] = useState(null)
@@ -27,13 +28,13 @@ function SpainScreen() {
     )
   } else {
     return (
-      <div className='fullscreen'>
-        <h1 className='text-center my-4'>El tiempo en España {moment().format("LL")}</h1>
-        <Link to={"/provincias"}>Provincias</Link>
-        <h1 className='text-center mt-3'>Ciudades destacadas</h1>
-        <div className=' d-flex flex-wrap gap-2 justify-content-center my-5'>
+      <div className='fullscreen container'>
+        <h1 className='text-center py-4'>El tiempo en España <br/>{moment().format("LL")}</h1>
+        <ProvincesSelector className="mx-auto"/>
+        <h1 className='text-center mt-5 pt-5'>Ciudades destacadas</h1>
+        <div className='d-flex flex-wrap justify-content-center my-5 row'>
         {data?.ciudades.map((ciudad) => (
-          <div key={ciudad?.id}>
+          <div key={ciudad?.id} className="col-5 col-lg-3 col-xl-2 my-1">
             <CityCard {...ciudad}/>
           </div>
           ))}

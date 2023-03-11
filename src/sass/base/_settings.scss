@@ -1,0 +1,34 @@
+$main: #7000b1;
+$secondary: #01bebe;
+$white: #f5f5f5;
+$dark: #002c34;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html{
+  min-height:100%;
+  position:relative;
+}
+body{
+  min-height:100%;
+}
+
+.fullscreen {
+  position: relative;
+  color: $secondary;
+  padding-bottom: 50px;
+}
+
+.page-bg{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  overflow:scroll;
+  z-index:-1;
+  background-color: $dark;
+}
+

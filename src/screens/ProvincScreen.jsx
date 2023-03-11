@@ -17,13 +17,13 @@ function ProvincScreen() {
 
   if (!provinces) {
     return (
-        <div className='d-flex justify-content-center align-items-center'>
+        <div className='d-flex justify-content-center align-items-center pt-5'>
           <UseAnimations animation={loading2} size={150} fillColor={"gray"} />
         </div>    
     )
   } else {
     return (
-      <div className='fullscreen container d-flex flex-wrap  justify-content-center gap-3 mt-5'>
+      <div className='fullscreen container d-flex flex-wrap  justify-content-center gap-3 pt-5'>
         {provinces?.map((province) => (
           <ProvincesLink id={province?.CODPROV} name={province.NOMBRE_PROVINCIA} key={province?.CODPROV} />
         ))}

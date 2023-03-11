@@ -1,0 +1,14 @@
+
+.weather-card {
+  opacity: 0.5;
+
+  .card-text{
+    color: $white;
+  
+    &:hover{
+      color: $dark;
+      opacity: 0.8
+    }
+  }
+}
+

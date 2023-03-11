@@ -32,7 +32,7 @@ function MunicScreen() {
     )
   } else {
     return (
-      <div className='fullscreen container d-flex flex-wrap justify-content-center gap-3 mt-5'>
+      <div className='fullscreen container d-flex flex-wrap justify-content-center gap-3 pt-5'>
         {test?.map((municipio) => (
           <MunicipalitiesLink provId={codProv} munId={municipio[1]?.CODIGOINE.slice(0, 5)} name={municipio[1]?.NOMBRE} key={municipio[1]?.NOMBRE} />
         ))}

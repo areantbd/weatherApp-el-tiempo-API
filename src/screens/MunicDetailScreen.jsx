@@ -18,17 +18,24 @@ function MunicDetailScreen() {
   console.log(codMunic)
   console.log(codProv)
   console.log(munic)
+  let prov = ""
+
+  if (munic?.municipio.NOMBRE !== munic?.municipio.NOMBRE_PROVINCIA) {
+    prov = `(${munic?.municipio.NOMBRE_PROVINCIA.toUpperCase()})`
+  } else {
+    prov = ""
+  }
 
   if (!munic) {
     return (
-        <div className='d-flex justify-content-center align-items-center'>
+        <div className='d-flex justify-content-center align-items-center pt-5 mt-5'>
           <UseAnimations animation={loading2} size={150} fillColor={"gray"} />
         </div>    
     )
   } else {
     return (
-      <div className='fullscreen'>
-        <h3 className='fw-bold'>{munic?.municipio.NOMBRE.toUpperCase()}</h3>
+      <div className='fullscreen pt-5 container'>
+        <h3 className='fw-bold'>{munic?.municipio.NOMBRE.toUpperCase()} {prov}</h3>
         <h1 className='fw-bold'>{moment().format("dddd").toUpperCase()}, {moment().format("D")} {moment().format("MMM").toUpperCase()} </h1>
         <h1>{munic?.temperatura_actual}º</h1>
         <h3>{munic?.stateSky.description}</h3>
