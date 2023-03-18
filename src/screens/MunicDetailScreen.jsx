@@ -5,10 +5,13 @@ import UseAnimations from 'react-useanimations'
 import loading2 from 'react-useanimations/lib/loading2'
 import moment from 'moment/moment'
 import "moment/locale/es"
+import Map from '../components/Map'
 
 function MunicDetailScreen() {
   let { codProv, codMunic } = useParams()
   const [munic, setMunic] = useState(null)
+  const center = {lat: munic?.municipio.LATITUD_ETRS89_REGCAN95, lng: munic?.municipio.LONGITUD_ETRS89_REGCAN95}
+  
 
   useEffect(() => {
     services.getMunicipalitie(codProv, codMunic)
@@ -60,12 +63,14 @@ function MunicDetailScreen() {
           </div>
         </div>
 
+        <Map center={center} zoom={11}/>
+
         <h1>Mas info</h1>
         <h3>Población capital: {munic?.municipio.POBLACION_CAPITAL}</h3>
         <h3>Población municipio: {munic?.municipio.POBLACION_MUNI}</h3>
         <h3>Altitud SNDM: {munic?.municipio.ALTITUD} m.</h3>
         <h3>Perímetro total: {munic?.municipio.PERIMETRO} m.</h3>
-        <h3>Superficie total: {munic?.municipio.SUPERFICIE} ha.</h3>
+        <h3>Superficie total: {munic?.municipio.SUPERFICIE.toFixed(2)} ha.</h3>
       {munic?.keywords}</div>
     )
   }
