@@ -15,7 +15,7 @@ function Mapa({ center, zoom, markers }) {
     });
   }, [center, zoom, markers]);
 
-  return <div ref={ref} id="map" style={{ height: "200px" }} />;
+  return <div ref={ref} id="map" style={{ height: "20rem", width: "50%" }} />;
 }
 
 function Map({ center, zoom }) {
