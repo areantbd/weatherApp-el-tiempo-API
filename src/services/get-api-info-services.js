@@ -20,6 +20,11 @@ export function getMunicipalitiesNames(codProv) {
   return http.get(`/provincias/${codProv}/municipios`)
 }
 
+export function getMunicipalities() {
+  return http.get(`/municipios`)
+}
+
+
 export function getMunicipalitie(codProv, codMunic) {
   return http.get(`/provincias/${codProv}/municipios/${codMunic}`)
 }

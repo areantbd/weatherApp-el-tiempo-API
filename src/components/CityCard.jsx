@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function CityCard({ name, stateSky, temperatures, idProvince, id }) {
-   console.log(stateSky)
+  //  console.log(stateSky)
   return (
     <Link to={`/provincias/${idProvince}/municipios/${id}`} className="text-decoration-none" >
       <div className=' weather-card'>
