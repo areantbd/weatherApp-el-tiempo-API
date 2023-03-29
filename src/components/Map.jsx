@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
 
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+ 
 
 function Mapa({ center, zoom, markers }) {
   const ref = useRef();
