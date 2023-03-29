@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from 'react'
-import { Wrapper } from '@googlemaps/react-wrapper'
+import React, { useEffect, useRef } from "react";
+import { Wrapper } from "@googlemaps/react-wrapper";
 
-const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY || "";
+const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 function Mapa({ center, zoom, markers }) {
   const ref = useRef();
 
-  console.log(center)
+  console.log(center);
 
   useEffect(() => {
     new window.google.maps.Map(ref.current, {
@@ -21,11 +21,11 @@ function Mapa({ center, zoom, markers }) {
 function Map({ center, zoom }) {
   return (
     <>
-    <Wrapper apiKey={GOOGLE_API_KEY}>
-      <Mapa center={center} zoom={zoom}/>
-    </Wrapper>
+      <Wrapper apiKey={GOOGLE_API_KEY}>
+        <Mapa center={center} zoom={zoom} />
+      </Wrapper>
     </>
-  )
+  );
 }
 
-export default Map
+export default Map;
