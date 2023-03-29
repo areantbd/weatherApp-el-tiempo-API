@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
 
-const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY || "";
  
 
 function Mapa({ center, zoom, markers }) {
   const ref = useRef();
 
-  console.log(GOOGLE_API_KEY);
+  console.log("API", GOOGLE_API_KEY);
 
   useEffect(() => {
     new window.google.maps.Map(ref.current, {
