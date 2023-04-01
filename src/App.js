@@ -7,7 +7,7 @@ import SpainScreen from "./screens/SpainScreen";
 
 function App() {
   return (
-    <div className="page-bg">
+    <div className="page-bg mt-5">
       <Routes>
         <Route path="/" element={<SpainScreen />}/>
         <Route path="/provincias" element={<ProvincScreen />}/>
