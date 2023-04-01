@@ -60,10 +60,10 @@ function Navbar() {
                   Seleccionar provincia
                 </span>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>Action</li>
+                  <li>Another action</li>
                   <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li>Something else here</li>
                 </ul>
               </li>
             </ul>
