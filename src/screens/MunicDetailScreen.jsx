@@ -13,6 +13,7 @@ function MunicDetailScreen() {
   const [munic, setMunic] = useState(null)
   const center = {lat: munic?.municipio.LATITUD_ETRS89_REGCAN95, lng: munic?.municipio.LONGITUD_ETRS89_REGCAN95}
   let image = `https://loremflickr.com/480/640/city,${munic?.municipio.NOMBRE.replace(/\s/g, '')}` || `https://loremflickr.com/640/480/city`
+  let lluvia = munic?.lluvia || 0
   
   function average(array) {
     const numArray = array.map((number) => (Number(number)))
@@ -70,7 +71,7 @@ console.log(image)
             </div>
             <div className='data-card'>
               <h5 className='text-center data-text'>P. Lluvia</h5>
-              <h5 className='text-center data-text'>{munic?.lluvia}%</h5>
+              <h5 className='text-center data-text'>{lluvia}%</h5>
             </div>
           </div>
         </div>
