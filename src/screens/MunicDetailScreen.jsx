@@ -79,16 +79,23 @@ console.log(image)
           <div className='detail-card py-3 data-text col-5'>
             <h3>MAÑANA</h3>
             <div className='d-flex flex-wrap gap-2 align-items-center justify-content-center'>
+              <div className="data-card d-flex gap-2 text-center">
+                <div>
+                  <h2>T. Max</h2>
+                  <h2>{munic?.pronostico.manana.temperatura.reduce((a, b) => Math.max(a, b,))}º</h2>
+                </div>
+                <hr />
+                <div>
+                  <h2>T. Min</h2>
+                  <h2>{munic?.pronostico.manana.temperatura.reduce((a, b) => Math.min(a, b,))}º</h2>
+                </div>
+              </div>
               <div className="data-card">
-                <h2>Lluvia:</h2>
+                <h2>Lluvia</h2>
                 <h2>{average(munic?.pronostico.manana.prob_precipitacion)}%</h2>
               </div>
               <div className="data-card">
-                <h2>Temp:</h2>
-                <h2>{average(munic?.pronostico.manana.temperatura)}º</h2>
-              </div>
-              <div className="data-card">
-                <h2>Hum:</h2>
+                <h2>Hum</h2>
                 <h2>{average(munic?.pronostico.manana.humedad_relativa)}%</h2>
               </div>
             </div>
