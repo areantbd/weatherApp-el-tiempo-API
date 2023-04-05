@@ -20,18 +20,11 @@ function MunicipalitiesSelector() {
   
   // console.log(codProv)
   return (
-    <div className="d-block">
-      <div className="dropdown-center d-flex justify-content-center">
-        <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="size 3">
-          Seleccionar Municipio
-        </button>
-        <ul className="dropdown-menu">
-        {test?.map((municipio) => (
-          <li key={municipio[1]?.CODIGOINE.slice(0, 5)}><Link to={`/provincias/${codProv}/municipios/${municipio[1]?.CODIGOINE.slice(0, 5)}`} className="provinces-link text-decoration-none ms-3 me-n3">{municipio[1]?.NOMBRE}</Link></li>
-        ))}
-        </ul>
-      </div>
-    </div>
+    <ul className="dropdown-menu">
+    {test?.map((municipio) => (
+      <li key={municipio[1]?.CODIGOINE.slice(0, 5)}><Link to={`/provincias/${codProv}/municipios/${municipio[1]?.CODIGOINE.slice(0, 5)}`} className="provinces-link text-decoration-none ms-3 me-n3">{municipio[1]?.NOMBRE}</Link></li>
+    ))}
+    </ul>
   )
 }
 

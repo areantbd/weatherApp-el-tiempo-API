@@ -1,53 +1,40 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import * as services from "../services/get-api-info-services"
+import icon from "../assets/images/icons8-parcialmente-nublado-lluvia.gif"
+import icon2 from "../assets/images/icons8-tormenta.gif"
 
 function Navbar() {
   const [munic, setMunic] = useState(null)
   const [search, setSearch] = useState("")
+  const [provinces, setProvinces] = useState(null);
+  let { codProv } = useParams()
+
+  console.log("codProv", codProv)
 
   useEffect(() => {
     services.getMunicipalities()
       .then((mun) => setMunic(mun?.data.filter((nombre) => nombre?.NOMBRE.toLowerCase().includes(search.toLowerCase()))))
       .catch((error) => console.error(error))
+    services.getProvincesNames()
+      .then((data) => setProvinces(data.data.provincias))
+      .catch((error) => console.error(error));
   }, [search])
+
+  // function goToMunic() {
+  //   <Link to={munic && `/provincias/${munic[0]?.CODPROV}/municipios/${munic[0]?.CODIGOINE.slice(0, 5)}`}
+  //                 className="input-group-text ms-1"
+  //                 style={{ backgroundColor: "white", border: "none" }}
+  //                 >
+  //                 <i className="fa fa-search"></i>
+  //                 </Link>
+  // }
   
   console.log("munic", munic)
 
   return (
     <>
-      {/* <nav className="navbar bg-light">
-        <div className="container-fluid d-flex flex-row flex-nowrap">
-          <Link to={"/"} className="navbar-brand">app del tiempo</Link>
-          <form className="d-flex" role="search">
-            <input
-                type="text"
-                value={search}
-                className="form-control me-2"
-                placeholder="Buscar por municipio"
-                onChange={(ev) => setSearch(ev.target.value)}
-              />
-              {munic?.length === 1 ? (
-                <Link
-                  to={munic && `/provincias/${munic[0]?.CODPROV}/municipios/${munic[0]?.CODIGOINE.slice(0, 5)}`}
-                  className="input-group-text ms-1"
-                  style={{ backgroundColor: "white", border: "none" }}
-                  >
-                  <i className="fa fa-search"></i>
-                  </Link>
-                ) : (
-                  <Link
-                    to={munic && `/provincias/${munic[0]?.CODPROV}/municipios/${munic[0]?.CODIGOINE.slice(0, 5)}`}
-                    className="input-group-text ms-1 text-danger"
-                    style={{ backgroundColor: "white", border: "none" }}
-                  >
-                    <i className="fa fa-search"></i>
-                  </Link>
-                )}
-          </form>
-        </div>
-      </nav> */}
-      <nav class="navbar navbar-expand-lg bg-light align-items-center">
+      {/* <nav class="navbar navbar-expand-lg bg-light align-items-center">
         <div class="container-fluid ">
         <Link to={"/"} className="navbar-brand">app del tiempo</Link>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,11 +46,10 @@ function Navbar() {
                 <span class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Seleccionar provincia
                 </span>
-                <ul class="dropdown-menu">
-                  <li>Action</li>
-                  <li>Another action</li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>Something else here</li>
+                <ul className="dropdown-menu">
+                  {provinces?.map((province) => (
+                    <li key={province?.CODPROV}><Link to={`provincias/${province?.CODPROV}`} className="provinces-link text-decoration-none">{province?.NOMBRE_PROVINCIA}</Link></li>
+                  ))}
                 </ul>
               </li>
             </ul>
@@ -74,6 +60,10 @@ function Navbar() {
                 className="form-control me-2"
                 placeholder="Buscar por municipio"
                 onChange={(ev) => setSearch(ev.target.value)}
+                // onDragEnter={(ev) => {
+                //   ev.preventDefault()
+                //   alert("hey")
+                // }}
               />
               {munic?.length === 1 ? (
                 <Link
@@ -93,6 +83,64 @@ function Navbar() {
                   </Link>
                 )}
           </form>
+          </div>
+        </div>
+      </nav> */}
+      <nav class="navbar bg-light fixed-top">
+        <div class="container-fluid">
+        <Link to={"/"} className="navbar-brand ms-4"><img className='icon me-4' alt='name' src={icon}/> App del tiempo <img className='icon ms-4' alt='name icon' src={icon2}/></Link>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item dropdown">
+                  <span class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Seleccionar provincia
+                  </span>
+                  <ul className="dropdown-menu">
+                  {provinces?.map((province) => (
+                    <li key={province?.CODPROV}><Link to={`provincias/${province?.CODPROV}`} className="provinces-link text-decoration-none">{province?.NOMBRE_PROVINCIA}</Link></li>
+                  ))}
+                </ul>
+                </li>
+              </ul>
+              <form class="d-flex mt-3" role="search">
+              <input
+                type="text"
+                value={search}
+                className="form-control me-2"
+                placeholder="Buscar por municipio"
+                onChange={(ev) => setSearch(ev.target.value)}
+                // onDragEnter={(ev) => {
+                //   ev.preventDefault()
+                //   alert("hey")
+                // }}
+              />
+              {munic?.length === 1 ? (
+                <Link
+                  to={munic && `/provincias/${munic[0]?.CODPROV}/municipios/${munic[0]?.CODIGOINE.slice(0, 5)}`}
+                  className="input-group-text ms-1"
+                  style={{ backgroundColor: "white", border: "none" }}
+                  >
+                  <i className="fa fa-search"></i>
+                  </Link>
+                ) : (
+                  <Link
+                    to={munic && `/provincias/${munic[0]?.CODPROV}/municipios/${munic[0]?.CODIGOINE.slice(0, 5)}`}
+                    className="input-group-text ms-1 text-danger"
+                    style={{ backgroundColor: "white", border: "none" }}
+                  >
+                    <i className="fa fa-search"></i>
+                  </Link>
+                )}
+              </form>
+            </div>
           </div>
         </div>
       </nav>
