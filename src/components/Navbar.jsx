@@ -86,21 +86,21 @@ function Navbar() {
           </div>
         </div>
       </nav> */}
-      <nav class="navbar bg-light fixed-top">
-        <div class="container-fluid">
+      <nav className="navbar bg-light fixed-top">
+        <div className="container-fluid">
         <Link to={"/"} className="navbar-brand ms-4"><img className='icon me-4' alt='name' src={icon}/> App del tiempo <img className='icon ms-4' alt='name icon' src={icon2}/></Link>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
+          <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div className="offcanvas-header">
+              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Buscador</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item dropdown">
-                  <span class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div className="offcanvas-body">
+              <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li className="nav-item dropdown">
+                  <span className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Seleccionar provincia
                   </span>
                   <ul className="dropdown-menu">
@@ -110,8 +110,9 @@ function Navbar() {
                 </ul>
                 </li>
               </ul>
-              <form class="d-flex mt-3" role="search">
+              <form className="d-flex mt-3" role="search">
               <input
+                list='municipios'
                 type="text"
                 value={search}
                 className="form-control me-2"
@@ -122,22 +123,22 @@ function Navbar() {
                 //   alert("hey")
                 // }}
               />
+              <datalist id='municipios'>
+                {munic?.map((mun) => (
+                  <option key={mun?.ID_REL} value={mun?.NOMBRE} />
+                ))}
+              </datalist>
               {munic?.length === 1 ? (
                 <Link
                   to={munic && `/provincias/${munic[0]?.CODPROV}/municipios/${munic[0]?.CODIGOINE.slice(0, 5)}`}
                   className="input-group-text ms-1"
                   style={{ backgroundColor: "white", border: "none" }}
+                  onClick={() => setSearch("")}
                   >
                   <i className="fa fa-search"></i>
                   </Link>
-                ) : (
-                  <Link
-                    to={munic && `/provincias/${munic[0]?.CODPROV}/municipios/${munic[0]?.CODIGOINE.slice(0, 5)}`}
-                    className="input-group-text ms-1 text-danger"
-                    style={{ backgroundColor: "white", border: "none" }}
-                  >
+                ) : (                  
                     <i className="fa fa-search"></i>
-                  </Link>
                 )}
               </form>
             </div>
