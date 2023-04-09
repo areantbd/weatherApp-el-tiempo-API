@@ -88,7 +88,7 @@ function Navbar() {
       </nav> */}
       <nav className="navbar bg-light fixed-top">
         <div className="container-fluid">
-        <Link to={"/"} className="navbar-brand ms-4"><img className='icon me-4' alt='name' src={icon}/> App del tiempo <img className='icon ms-4' alt='name icon' src={icon2}/></Link>
+        <Link to={"/"} className="navbar-brand ms-4"><img className='icon me-3' alt='name' src={icon}/> App del tiempo <img className='icon ms-3' alt='name icon' src={icon2}/></Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span className="navbar-toggler-icon"></span>
           </button>
