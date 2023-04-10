@@ -75,7 +75,7 @@ console.log(image)
             </div>
           </div>
         </div>
-        <div className='row justify-content-around'>
+        {/* <div className='row justify-content-around'>
           <div className='detail-card py-3 data-text col-5'>
             <h3>MAÑANA</h3>
             <div className='d-flex flex-wrap gap-2 align-items-center justify-content-center'>
@@ -101,6 +101,34 @@ console.log(image)
             </div>
           </div>
           <Map center={center} zoom={11} className="col-5"/>
+        </div> */}
+        
+        <div className='d-flex flex-column gap-3 justify-content-around'>
+          <div className='detail-card py-3 data-text'>
+            <h3 className='text-decoration-underline'>MAÑANA</h3>
+            <div className='d-flex flex-wrap gap-3 align-items-center justify-content-center'>
+              <div className=" d-flex gap-2 text-center">
+                <div className="data-card">
+                  <h2>Temp. Max</h2>
+                  <h2>{munic?.pronostico.manana.temperatura.reduce((a, b) => Math.max(a, b,))}º</h2>
+                </div>
+                <hr />
+                <div className="data-card">
+                  <h2>Temp. Min</h2>
+                  <h2>{munic?.pronostico.manana.temperatura.reduce((a, b) => Math.min(a, b,))}º</h2>
+                </div>
+              </div>
+              <div className="data-card text-center">
+                <h2>Lluvia</h2>
+                <h2>{average(munic?.pronostico.manana.prob_precipitacion)}%</h2>
+              </div>
+              <div className="data-card text-center">
+                <h2>Humedad</h2>
+                <h2>{average(munic?.pronostico.manana.humedad_relativa)}%</h2>
+              </div>
+            </div>
+          </div>
+          <Map center={center} zoom={11} className="border"/>
         </div>
 
         <div className='detail-card py-3 mt-5 data-text'>

@@ -16,7 +16,7 @@ function ProvincDetailScreen() {
       .catch((error) => console.error(error))
   }, [codProv])
 
-  console.log(prov?.provincia.CODPROV)
+  console.log("prov", prov)
 
   if (!prov) {
     return (

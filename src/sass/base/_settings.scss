@@ -1,7 +1,7 @@
-$main: #7000b1;
+$main: #979697;
 $secondary: #01bebe;
 $white: #f5f5f5;
-$dark: #002c34;
+$dark: #1a1a1a;
 
 * {
   margin: 0;
@@ -17,7 +17,7 @@ body{
 
 .fullscreen {
   position: relative;
-  color: $secondary;
+  color: $main;
   padding-bottom: 50px;
   margin-top: -20px;
 }

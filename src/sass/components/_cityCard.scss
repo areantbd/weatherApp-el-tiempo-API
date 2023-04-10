@@ -2,13 +2,27 @@
 .weather-card {
   opacity: 0.5;
 
+  &:hover{
+    opacity: unset;
+    z-index: -1;
+      .text-truncate{
+        overflow:visible;
+        text-overflow:inherit;
+        white-space: inherit;
+      }
+  }
+
   .card-text{
     color: $white;
   
-    &:hover{
-      color: $dark;
-      opacity: 0.8
-    }
+    
   }
 }
+// .text-truncate {
+//   &:hover{
+//     overflow: auto;
+//     text-overflow: clip;
+//     white-space: inherit;
+//   }
+// }
 

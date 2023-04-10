@@ -1,18 +1,21 @@
 .detail-card {
   background-color: $white;
-  opacity: 0.7;
+  opacity: 0.8;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   
-  &:hover {
-    .data-text{
-      filter: drop-shadow( 5px 5px 5px $dark);
-    }
-  }
+  // &:hover {
+  //   .data-text{
+  //     filter: drop-shadow( 5px 5px 5px $main);
+  //   }
+  // }
 }
+// .data-text{
+//   filter: drop-shadow( 5px 5px 5px $main);
+// }
 
 .cards{
   display: flex;
