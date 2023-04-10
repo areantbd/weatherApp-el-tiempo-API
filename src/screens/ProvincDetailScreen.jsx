@@ -32,7 +32,7 @@ function ProvincDetailScreen() {
           <h1 className='text-center mt-5 pt-5'>Municipios destacados de {prov?.provincia.NOMBRE_PROVINCIA}</h1>
           <div className='container d-flex flex-wrap gap-2 justify-content-center mx-auto my-5'>
             {prov?.ciudades.map((ciudad) => (
-              <div key={ciudad.id}>
+              <div key={ciudad.id}  className="col-5 col-lg-3 col-xl-2 my-1">
                 <CityCard {...ciudad} codProv={codProv}/>
               </div>
             ))}
