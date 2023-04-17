@@ -7,6 +7,7 @@ import loading2 from 'react-useanimations/lib/loading2'
 import moment from 'moment/moment'
 import "moment/locale/es"
 import Map from '../components/Map'
+import Navbar from '../components/NavbarMun'
 
 function MunicDetailScreen() {
   let { codProv, codMunic } = useParams()
@@ -47,6 +48,8 @@ console.log(image)
     )
   } else {
     return (
+      <>
+      <Navbar />
       <div className='fullscreen pt-5 container' 
         style={{backgroundImage: `url(${image})`, 
         backgroundRepeat: 'no-repeat',
@@ -141,6 +144,7 @@ console.log(image)
         </div>
         {/* <img src={image} alt="text" />  */}
       </div>
+      </>
     )
   }
 

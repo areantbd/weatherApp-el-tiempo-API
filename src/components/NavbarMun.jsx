@@ -7,9 +7,10 @@ import icon2 from "../assets/images/icons8-tormenta.gif";
 function Navbar() {
   const [munic, setMunic] = useState(null);
   const [search, setSearch] = useState("");
-  const [provinces, setProvinces] = useState(null);
+  const [municipios, setMunicipios] = useState(null);
+  const {codProv} = useParams()
 
-
+console.log("mun", municipios)
   useEffect(() => {
     services
       .getMunicipalities()
@@ -21,11 +22,12 @@ function Navbar() {
         )
       )
       .catch((error) => console.error(error));
-    services
-      .getProvincesNames()
-      .then((data) => setProvinces(data.data.provincias))
-      .catch((error) => console.error(error));
-  }, [search]);
+      
+      services.getMunicipalitiesNames(codProv)
+      .then((data) => setMunicipios(data.data.municipios))
+      .catch((error) => console.error(error))
+    
+  }, [search, codProv]);
 
   // function goToMunic() {
   //   <Link to={munic && `/provincias/${munic[0]?.CODPROV}/municipios/${munic[0]?.CODIGOINE.slice(0, 5)}`}
@@ -136,16 +138,16 @@ function Navbar() {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Seleccionar provincia
+                    Seleccionar Municipio
                   </span>
                   <ul className="dropdown-menu">
-                    {provinces?.map((province) => (
-                      <li key={province?.CODPROV}>
+                    {municipios?.map((municipio) => (
+                      <li key={municipio?.CODIGOINE}>
                         <Link
-                          to={`provincias/${province?.CODPROV}`}
+                          to={`/provincias/${codProv}/municipios/${municipio[1]?.CODIGOINE.slice(0, 5)}`}
                           className="provinces-link text-decoration-none"
                         >
-                          {province?.NOMBRE_PROVINCIA}
+                          {municipio?.NOMBRE}
                         </Link>
                       </li>
                     ))}
