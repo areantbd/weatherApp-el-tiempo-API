@@ -9,8 +9,14 @@ function Navbar() {
   const [search, setSearch] = useState("");
   const [municipios, setMunicipios] = useState(null);
   const {codProv} = useParams()
+  let test = ""
+ if (munic) {
+  test = munic.filter(munc => munc.CODPROV === codProv)
+  munic && console.log("mun", test)
+}
 
-console.log("mun", municipios)
+console.log(codProv)
+municipios && console.log("munic", municipios)
   useEffect(() => {
     services
       .getMunicipalities()
@@ -138,13 +144,17 @@ console.log("mun", municipios)
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Seleccionar Municipio
+                    Seleccionar Municipio de {test && test[0].NOMBRE_PROVINCIA}
                   </span>
                   <ul className="dropdown-menu">
-                    {municipios?.map((municipio) => (
+                    {test && test?.map((municipio) => (
                       <li key={municipio?.CODIGOINE}>
                         <Link
-                          to={`/provincias/${codProv}/municipios/${municipio[1]?.CODIGOINE.slice(0, 5)}`}
+                          to={municipios &&
+                      `/provincias/${
+                        municipio?.CODPROV
+                      }/municipios/${municipio?.CODIGOINE.slice(0, 5)}`
+                    }
                           className="provinces-link text-decoration-none"
                         >
                           {municipio?.NOMBRE}

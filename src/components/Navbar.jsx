@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as services from "../services/get-api-info-services";
 import icon from "../assets/images/icons8-parcialmente-nublado-lluvia.gif";
 import icon2 from "../assets/images/icons8-tormenta.gif";
