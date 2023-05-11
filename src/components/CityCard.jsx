@@ -10,8 +10,8 @@ function CityCard({ name, stateSky, temperatures, idProvince, id }) {
           <h4 className='text-center patata d-inline-block text-truncate' style={{maxWidth: "120px"}}>{name}</h4> 
           <h5 className='text-center patata d-inline-block text-truncate' style={{maxWidth: "120px"}}>{stateSky.description}</h5> 
           <div className='row'>
-            <h5 className='col-5 text-center'>Min: {temperatures.min}</h5>
-            <h5 className='col-5 text-center'>Max: {temperatures.max}</h5>
+            <h5 className='col-5 text-center'>Min: {temperatures?.min}</h5>
+            <h5 className='col-5 text-center'>Max: {temperatures?.max}</h5>
           </div>
           {/* <h5 className='text-center text-light'>{codProv || idProvince}</h5>
           <h5 className='text-center text-light'>{id}</h5> */}

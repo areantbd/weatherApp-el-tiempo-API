@@ -23,6 +23,11 @@ function MunicDetailScreen() {
     return avg.toFixed(0)
   }
 
+  function setFavorite() {
+    localStorage.setItem("prov", codProv)
+    localStorage.setItem("mun", codMunic)
+  }
+
 console.log(image)
   useEffect(() => {
     services.getMunicipalitie(codProv, codMunic)
@@ -54,6 +59,7 @@ console.log(image)
         style={{backgroundImage: `url(${image})`, 
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover'}}>
+        <button className='btn btn-danger btn-sm' onClick={() => setFavorite()}>Fav</button>
         <div className='detail-card py-3 mb-5'>
           <h3 className='fw-bold data-text'>{munic?.municipio.NOMBRE.toUpperCase()} {prov}</h3>
           <h1 className='fw-bold data-text'>{moment().format("dddd").toUpperCase()}, {moment().format("D")} {moment().format("MMM").toUpperCase()} </h1>
