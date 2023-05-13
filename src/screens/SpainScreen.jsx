@@ -50,7 +50,7 @@ function SpainScreen() {
             {moment().format("LL")}
           </h1>
           {/* <ProvincesSelector className="mx-auto"/> */}
-          {fav && (
+          {fav ? (
             <div className="col-5 col-lg-3 col-xl-2 my-1 ms-auto me-auto">
               <CityCard
                 name={fav?.municipio.NOMBRE}
@@ -60,6 +60,8 @@ function SpainScreen() {
                 id={mun}
               />
             </div>
+          ) : (
+            <h5 align="center" className="text-info">Selecciona un favorito para verlo aquí</h5>
           )}
           <h1 className="text-center mt-1 pt-3">Ciudades destacadas</h1>
           <div className="d-flex flex-wrap justify-content-center my-4 row">
