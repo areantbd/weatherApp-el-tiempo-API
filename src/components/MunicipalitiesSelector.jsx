@@ -16,9 +16,7 @@ function MunicipalitiesSelector() {
   if (municipios) {
     test = Object.entries(municipios?.municipios)
   }
-
   
-  // console.log(codProv)
   return (
     <div className="d-block">
       <div className="dropdown-center d-flex justify-content-center">

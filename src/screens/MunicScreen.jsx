@@ -20,10 +20,6 @@ function MunicScreen() {
     test = Object.entries(municipios?.municipios)
   }
 
-  console.log("test", test)
-
-  // console.log(municipios)
-
   if (!municipios) {
     return (
         <div className='d-flex justify-content-center align-items-center'>

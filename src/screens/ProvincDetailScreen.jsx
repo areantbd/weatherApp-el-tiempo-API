@@ -17,8 +17,6 @@ function ProvincDetailScreen() {
       .catch((error) => console.error(error))
   }, [codProv])
 
-  console.log(prov?.provincia.CODPROV)
-
   if (!prov) {
     return (
         <div className='d-flex justify-content-center align-items-center pt-5 mt-5'>

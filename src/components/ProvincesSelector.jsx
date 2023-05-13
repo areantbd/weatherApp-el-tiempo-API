@@ -12,7 +12,6 @@ function ProvincesSelector() {
       .catch((error) => console.error(error));
   }, []);
 
-  console.log(provinces);
   return (
     <div className="d-block">
       <div className="dropdown-center d-flex justify-content-center">

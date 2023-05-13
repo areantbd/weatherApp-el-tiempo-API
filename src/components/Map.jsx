@@ -7,8 +7,6 @@ const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY || "";
 function Mapa({ center, zoom, markers }) {
   const ref = useRef();
 
-  console.log("API", GOOGLE_API_KEY);
-
   useEffect(() => {
     new window.google.maps.Map(ref.current, {
       center,

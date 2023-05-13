@@ -12,9 +12,7 @@ function ProvincScreen() {
       .then((data) => setProvinces(data.data.provincias))
       .catch((error) => console.error(error))
   }, [])
-
-  console.log(provinces)
-
+  
   if (!provinces) {
     return (
         <div className='d-flex justify-content-center align-items-center pt-5'>

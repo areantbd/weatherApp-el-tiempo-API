@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import { faker } from '@faker-js/faker';
 import * as services from "../services/get-api-info-services";
 import UseAnimations from "react-useanimations";
 import loading2 from "react-useanimations/lib/loading2";

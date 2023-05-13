@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function CityCard({ name, stateSky, temperatures, idProvince, id }) {
-  //  console.log(stateSky)
   return (
     <Link to={`/provincias/${idProvince}/municipios/${id}`} className="text-decoration-none" >
       <div className=' weather-card'>
@@ -13,8 +12,6 @@ function CityCard({ name, stateSky, temperatures, idProvince, id }) {
             <h5 className='col-5 text-center'>Min: {temperatures?.min}</h5>
             <h5 className='col-5 text-center'>Max: {temperatures?.max}</h5>
           </div>
-          {/* <h5 className='text-center text-light'>{codProv || idProvince}</h5>
-          <h5 className='text-center text-light'>{id}</h5> */}
         </div>
       </div>
     </Link>

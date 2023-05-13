@@ -27,73 +27,12 @@ function Navbar() {
       .catch((error) => console.error(error));
   }, [search]);
 
-  // function goToMunic() {
-  //   <Link to={munic && `/provincias/${munic[0]?.CODPROV}/municipios/${munic[0]?.CODIGOINE.slice(0, 5)}`}
-  //                 className="input-group-text ms-1"
-  //                 style={{ backgroundColor: "white", border: "none" }}
-  //                 >
-  //                 <i className="fa fa-search"></i>
-  //                 </Link>
-  // }
-
   const municNames = munic?.map((m) => m.NOMBRE)
 
   let index = municNames?.indexOf(search);
 
   return (
     <>
-      {/* <nav class="navbar navbar-expand-lg bg-light align-items-center">
-        <div class="container-fluid ">
-        <Link to={"/"} className="navbar-brand">app del tiempo</Link>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" >              
-              <li class="nav-item dropdown">
-                <span class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Seleccionar provincia
-                </span>
-                <ul className="dropdown-menu">
-                  {provinces?.map((province) => (
-                    <li key={province?.CODPROV}><Link to={`provincias/${province?.CODPROV}`} className="provinces-link text-decoration-none">{province?.NOMBRE_PROVINCIA}</Link></li>
-                  ))}
-                </ul>
-              </li>
-            </ul>
-            <form className="d-flex" role="search">
-            <input
-                type="text"
-                value={search}
-                className="form-control me-2"
-                placeholder="Buscar por municipio"
-                onChange={(ev) => setSearch(ev.target.value)}
-                // onDragEnter={(ev) => {
-                //   ev.preventDefault()
-                //   alert("hey")
-                // }}
-              />
-              {munic?.length === 1 ? (
-                <Link
-                  to={munic && `/provincias/${munic[0]?.CODPROV}/municipios/${munic[0]?.CODIGOINE.slice(0, 5)}`}
-                  className="input-group-text ms-1"
-                  style={{ backgroundColor: "white", border: "none" }}
-                  >
-                  <i className="fa fa-search"></i>
-                  </Link>
-                ) : (
-                  <Link
-                    to={munic && `/provincias/${munic[0]?.CODPROV}/municipios/${munic[0]?.CODIGOINE.slice(0, 5)}`}
-                    className="input-group-text ms-1 text-danger"
-                    style={{ backgroundColor: "white", border: "none" }}
-                  >
-                    <i className="fa fa-search"></i>
-                  </Link>
-                )}
-          </form>
-          </div>
-        </div>
-      </nav> */}
       <nav className="navbar bg-light fixed-top">
         <div className="container-fluid">
           <Link to={"/"} className="navbar-brand ms-4">
@@ -160,10 +99,6 @@ function Navbar() {
                   className="form-control me-2"
                   placeholder="Buscar por municipio"
                   onChange={(ev) => setSearch(ev.target.value)}
-                  // onDragEnter={(ev) => {
-                  //   ev.preventDefault()
-                  //   alert("hey")
-                  // }}
                 />
                 <datalist id="municipios">
                   {munic?.map((mun) => (

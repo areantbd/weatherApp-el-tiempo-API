@@ -6,7 +6,6 @@ import UseAnimations from "react-useanimations";
 import loading2 from "react-useanimations/lib/loading2";
 import * as services from "../services/get-api-info-services";
 import Navbar from "../components/Navbar";
-// import ProvincesSelector from '../components/ProvincesSelector'
 
 function SpainScreen() {
   const [data, setData] = useState(null);
@@ -31,9 +30,6 @@ function SpainScreen() {
         .catch((error) => console.error(error));
   }, [mun, prov]);
 
-  console.log("fav", fav);
-  console.log("ciud", data?.ciudades);
-
   if (!data) {
     return (
       <div className="d-flex justify-content-center align-items-center">
@@ -49,7 +45,6 @@ function SpainScreen() {
             El tiempo en España <br />
             {moment().format("LL")}
           </h1>
-          {/* <ProvincesSelector className="mx-auto"/> */}
           {fav ? (
             <div className="col-5 col-lg-3 col-xl-2 my-1 ms-auto me-auto">
               <CityCard
